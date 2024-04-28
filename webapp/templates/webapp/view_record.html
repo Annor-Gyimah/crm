@@ -1,0 +1,46 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+        
+        <div class="card-body">
+            <strong>&nbsp;<i class="fa fa-user-circle" aria-hidden="true"></i>
+                &nbsp; &nbsp;
+                {{employee.last_name|upper}}
+                {{employee.first_name}}
+    
+            </strong>
+            <hr>
+            <p> <strong> ID: </strong> {{employee.id}}</p>
+            <p> <strong> EMAIL: </strong> {{employee.email}}</p>
+
+            <p> <strong> PHONE: </strong> {{employee.phone_number}}</p>
+
+            <p> <strong> ADDRESS: </strong> {{employee.address}}</p>
+
+            <p> <strong> CITY: </strong> {{employee.city}}</p>
+
+            <p> <strong> COUNTRY: </strong> {{employee.country}}</p>
+
+            <p> <strong> CREATION DATE: </strong> {{employee.creation_date}}</p>
+
+
+
+
+        </div>
+
+
+
+
+    </div>
+    <br>
+    <a href="{% url 'dashboard' %}" class="btn btn-outline-primary">Go back &nbsp;<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    &nbsp;
+    <a href="{% url 'update_record' employee.id %}" class="btn btn-outline-info">Edit employee &nbsp;<i class="fa fa-user" aria-hidden="true"></i></a>
+    &nbsp;
+    <a href="{% url 'delete_record' employee.id %}" class="btn btn-outline-danger">Delete &nbsp;<i class="fa fa-minus-square" aria-hidden="true"></i></a>
+
+
+
+{% endblock %}

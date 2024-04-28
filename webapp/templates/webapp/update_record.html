@@ -1,0 +1,50 @@
+{% extends 'webapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body>
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <h3 class="text-center"> Update employee </h3>
+        
+
+        <p class="text-center"> You're editing employee's data </p>
+        
+        <hr>
+        <br> 
+
+        <form method="POST" autocomplete="OFF">
+            {% csrf_token %}
+            {{editemployee.first_name|as_crispy_field}}
+            <br>
+            {{editemployee.last_name|as_crispy_field}}
+            <br>
+            {{editemployee.email|as_crispy_field}}
+            <br>
+            {{editemployee.phone_number|as_crispy_field}}
+            <br>
+            {{editemployee.address|as_crispy_field}}
+            <br>
+            {{editemployee.city|as_crispy_field}}
+            <br>
+            {{editemployee.country|as_crispy_field}}
+            <br>
+            &nbsp;
+            <button type="submit" class="btn btn-outline-primary">Update Employee &nbsp;<i class="fa fa-pencil" aria-hidden="true"></i></button>
+            &nbsp;
+            
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Return &nbsp;<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+            <!-- <div class="text-center">
+            <p> Dont have an account? </p><a href="{% url 'register' %}">Register</a>
+            </div> -->
+
+
+        </form>
+
+
+    </div>
+</body>
+
+
+{% endblock %}

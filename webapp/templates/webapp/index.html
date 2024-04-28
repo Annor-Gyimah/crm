@@ -1,0 +1,23 @@
+
+{% extends 'webapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <body>
+        <div class="text-center">
+
+            <h3>ManagerX.....Your Free Management Sofware</h3>
+            <br>
+                <p>Keep track of your records effectively</p>
+            <hr>
+
+            <br>
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Create your acount &nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i></a>
+        
+        </div>
+
+
+    </body>
+           
+{% endblock %}

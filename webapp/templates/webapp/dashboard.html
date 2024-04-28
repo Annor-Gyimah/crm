@@ -1,0 +1,53 @@
+{% extends 'webapp/base.html' %}
+
+
+{% block content %}
+    <h2> Welcome to the dashboard page! {{user}}</h2>
+    <hr>
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create_record' %}">Create new employee &nbsp;<i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+
+    <hr>
+    <table class="table table-hover table-light table-bordered">
+        <thead class="table-dark">
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">View</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if records %}
+                {% for record in records %}
+                <tr>
+                    <td>{{record.id}}</td>
+                    <td>{{record.first_name}} {{record.last_name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.phone_number}}</td>
+                    <td>{{record.address}}</td>
+                    <td>{{record.city}}</td>
+                    <td>{{record.country}}</td>
+                    <td>{{record.creation_date}}</td>
+                     <td><a class="btn btn-outline-success btn-sm" href="{% url 'view_record' record.id %}">&nbsp;<i class="fa fa-eye" aria-hidden="true"></i></a></td> 
+                </tr>
+                {% endfor %}
+            {% endif %}
+
+        </tbody>
+    </table>
+    <!-- {% for record in records %}
+
+        {{record.id}}
+        {{record.first_name}}
+        {{record.last_name}}
+
+    {% endfor %} -->
+
+
+{% endblock %}

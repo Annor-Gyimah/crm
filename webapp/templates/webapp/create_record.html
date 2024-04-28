@@ -1,0 +1,49 @@
+{% extends 'webapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<body>
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <h3> Create employee </h3>
+
+        <h5> Start by adding in the required details for your employee.</h5>
+        <hr>
+        <br> 
+
+        <form method="POST" autocomplete="OFF">
+            {% csrf_token %}
+            {{addemployee.first_name|as_crispy_field}}
+            <br>
+            {{addemployee.last_name|as_crispy_field}}
+            <br>
+            {{addemployee.email|as_crispy_field}}
+            <br>
+            {{addemployee.phone_number|as_crispy_field}}
+            <br>
+            {{addemployee.address|as_crispy_field}}
+            <br>
+            {{addemployee.city|as_crispy_field}}
+            <br>
+            {{addemployee.country|as_crispy_field}}
+            
+            <br>
+            &nbsp;
+            <button type="submit" class="btn btn-outline-primary">Add Employee &nbsp;<i class="fa fa-check" aria-hidden="true"></i></button>
+            &nbsp;
+            
+                <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Return &nbsp;<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            
+            
+
+
+
+
+        </form>
+
+
+    </div>
+</body>
+
+
+{% endblock %}
